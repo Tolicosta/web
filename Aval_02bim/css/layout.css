@@ -1,0 +1,89 @@
+body{
+	background: #FFF8DC;
+	font-family: Tahoma, arial, verdana;
+	font-size: 13px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+.tudo{
+	width: 900px;
+	height: auto;
+	margin: 10px auto;
+	padding: 0;
+}
+.topo{
+	background: #FFF8DC;
+	width: 900px;
+	height: 100px;
+	margin: 0;
+}
+.imgTopo{
+	float: left;
+	top: 5px;
+	left: 10px;
+}
+.imgTopo img{
+	max-width: 100px;
+	max-height: 100px;
+	width: auto;
+	height: auto;
+}
+.menuTopo nav ul{
+	background: #FFE7BA;
+	background: linear-gradient(top, #FFE7BA 0%, #FFE7BA 100%);
+	background: -moz-linear-gradient(top, #FFE7BA 0%, #FFE7BA 100%);
+	background: -webkit-linear-gradient(top, #FFE7BA 0%, #FFE7BA 100%);
+	box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+	padding: 0 100px;
+	border-radius: 10px;
+	list-style: none;
+	display: inline-table;
+}
+.menuTopo nav ul:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.menuTopo nav ul li{
+	float: left;
+}
+.menuTopo nav ul li:hover{
+	background: #EEC591;
+	background: linear-gradient(top, #EEC591 0%, #EEC591 40%);
+	background: -moz-linear-gradient(top, #EEC591 0%, #EEC591 40%);
+	background: -webkit-linear-gradient(top, #EEC591 0%, #EEC591 40%);
+}
+.menuTopo nav ul li:hover a{
+	color: #8B4726;
+}
+.menuTopo nav ul li a{
+	display: block;
+	padding: 25px 40px;
+	color: #8B7355;
+	text-decoration: none;
+}
+.ifg{
+  float: left;
+  width: 500px;
+}
+.ifg img{
+  max-width: 500px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+}
+.conteudo{
+	float: left;
+	width: 600px;
+	margin-left: 20px;
+}
+.conteudo p{
+	text-align: justify;
+}
+.rodape{
+	float: left;
+	width: 500px;
+	padding: 10px;
+	text-align: center;
+}
