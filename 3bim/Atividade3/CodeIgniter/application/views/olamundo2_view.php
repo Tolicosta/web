@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo 2</title>
+	<?php
+ 		echo link_tag('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+ 		echo link_tag('assets/css/estilo.css');
+ 	?>
+</head>
+    
+<body>
+    <h1>Exemplo 2</h1><br>
+    <h3>Chamada da função incluir</h3>
+    
+</body>
+</html>
