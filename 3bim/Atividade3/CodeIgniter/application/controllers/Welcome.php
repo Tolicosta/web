@@ -26,16 +26,7 @@ class Welcome extends CI_Controller {
 	*/
 	public function index(){
 		
-		$data['inicio'] = $this->db->get('citacoes')->result();
-		$this->load->view('inicio', $data);
-	}
-		
-	public function detalhes($id){
-		
-		$this->db->where('id', $id);
-		$data['postagem'] = $this->db->get('postagens')->result();
-		$data['postagens'] = $this->db->get('postagens')->result();
-		$this->load->view('detalhes_postagem', $data);
+		$this->load->view('inicio');
 	}
 	
 	public function cadastro(){
@@ -44,41 +35,33 @@ class Welcome extends CI_Controller {
 		$this->load->view('cadastro');
 	}
 	
-	public function listagem(){
-		$this->load->view('relatorio');
-	}
-	
-	public function enviar_mensagem (){
-	
-		$mensagem = "Nome: " . $this->input->post('txt_nome') . br();
-		$mensagem .= "E-mail: " . $this->input->post('txt_email') . br();
-		$mensagem .= "Mensagem: " . $this->input->post('txt_mensagem') . br();
-		$config['protocol'] = 'smtp';
-		$config['smtp_host'] = 'ssl://smtp.live.com';
-		$config['smtp_port'] = '587';
-		$config['smtp_timeout'] = '30';
-		$config['smtp_user'] = 'ccnsassino1998@hotmail.com';
-		$config['smtp_pass'] = 'caiaio98.com';
-		$config['charset'] = 'utf-8';
-		$config['newline'] = "\r\n";
-		$config['mailtype'] = 'html';
-		$this->load->library('email', $config) ;
-		$this->email->from("ccnsassino1998@hotmail.com","Formulário do website") ;
-		$this->email->to("ccnsassino1998@hotmail.com");
-		$this->email->subject('Assunto do e-mail, enviado pelo CodeIgniter') ;
-		$this->email->message($mensagem);
+	public function cadastrar_registro(){
 		
-		if($this->email->send()){
+		$data['nomeArquivo'] = $this->input->post('txt_nome');
+		$data['titulo'] = $this->input->post('txt_titulo');
+		$data['autores'] = $this->input->post('txt_autores');
+		$data['citacoes'] = $this->input->post('txt_citacoes');
+		$data['referencias'] = $this->input->post('txt_referencias');
+		$data['palavrasChave'] = $this->input->post('txt_palavrasChave');
+				
+		if($this->db->insert('citacoes', $data)){
 			
-			$this->load->view('sucesso_envia_contato');
+			redirect(base_url());
 		}else{
 			
-			print_r($this->email->print_debugger());
+			echo "<script type='text/Javascript'> alert('Erro ao conectar com o banco de dados!')</script>";
+			redirect(base_url('cadastrar'));
 		}
+	}
+	
+	public function listagem(){
+		$data['citacoes'] = $this->db->get('citacoes')->result();
+		$this->load->view('listagem', $data);
 	}
 	
 	public function error404(){
 		
 		$this->load->view('error404');
 	}
+	
 }

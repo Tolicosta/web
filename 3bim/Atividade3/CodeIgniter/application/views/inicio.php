@@ -4,7 +4,7 @@
 	<head>
 	
 		<meta charset="utf-8">
-		<title>Meu Blog</title>
+		<title>Referencias</title>
 		<?php
  			echo link_tag('https://fonts.googleapis.com/css?family=Roboto+Condensed');
  			echo link_tag('assets/css/estilo.css');
@@ -14,7 +14,9 @@
 	<body>
 		
 		<?php
-		echo anchor(base_url("cadastro"),"Cadastrar Nova Referência"). "  ". anchor(base_url("listagem"), "Listagem das Referências Cadastradas"). anchor(base_url("consultar"), "Consultar Referências");
+		echo anchor(base_url("welcome/cadastro"), "Cadastrar Nova Referência") . br() . "<hr>" . 
+		anchor(base_url("welcome/listagem"), "Listagem das Referências Cadastradas") . br() . "<hr>" . 
+		anchor(base_url("welcome/consultar"), "Consultar Referências") . br() . "<hr>";
 		?>
 		
 	</body>
