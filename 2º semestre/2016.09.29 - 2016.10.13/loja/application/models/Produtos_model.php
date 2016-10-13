@@ -9,4 +9,16 @@
 			$this->db->where('id', $id);
 			return $this->db->get('produtos')->result();
 		}
+		
+		public function destaques_home($quantos = 3){
+			$this->db->limit($quantos);
+			$this->db->order_by('id', 'random');
+			return $this->db->get('produtos')->result();
+		}
+		
+		public function busca($buscar){
+			$this->db->like('titulo', $buscar);
+			$this->db->or_like('descricao', $buscar);
+			return $this->db->get('produtos')->result();
+		}
 	}
